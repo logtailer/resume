@@ -40,13 +40,13 @@
 \definecolor{UI_blue}{RGB}{32, 64, 151}
 \titleformat{\section}{
 \color{UI_blue} \scshape \raggedright \large 
-}{}{0em}{}[\vspace{-10pt} \hrulefill \vspace{-6pt}]
+}{}{0em}{}[\vspace{-13pt} \hrulefill \vspace{-8pt}]
 \newcommand{\subtext}[1]{
 #1\par\vspace{-0.2cm}}
 \setlist[itemize]{align=parleft,left=0pt..1em}
 \newenvironment{zitemize}{
 \begin{itemize}\itemsep0pt \parskip0pt \parsep1pt}
-{\end{itemize}\vspace{-0.5cm}}
+{\end{itemize}\vspace{-0.65cm}}
 \newcommand{\hskills}[1]{
 \textbf{\bfseries #1} }
 \titleformat{\subsection}{\vspace{-0.1cm} 
@@ -77,26 +77,35 @@
     {\color{UI_blue} \hrulefill}
 \end{center}
 
-Site Reliability Engineer with 2 years of experience adept at developing robust monitoring tools, disaster recovery, and automation solutions. Catalyzing efficiency by transforming operations with strategic automations and ensuring high availability of systems.  %% This can be customized, but I feel this impact statement makes people want to read more.
-
+Site Reliability Engineer with 4 years of experience adept at developing robust monitoring tools, disaster recovery, and automation solutions. Catalyzing efficiency by transforming operations with strategic automations and ensuring high availability of systems.  %% This can be customized, but I feel this impact statement makes people want to read more.
+\vspace{-0.25cm}
 \section{Education }
 
+\subsection{M.Tech, Software Systems}
+{{\normalsize \normalfont Birla Institute Of Technology and Science - Pilani, RJ} \hfill July 2024 --- July 2026}
 \subsection*{B.E, Computer Science Engineering} 
 {{\normalsize \normalfont Cambridge Institute Of Technology - Bangalore, KA} \hfill Aug 2018 --- July 2022} 
-
+\vspace{-0.3cm}
 \section{Experience}
 
 %%%%%%% ----------------------------------- Role 5 ----------------------------------- %%%%%%%
-\subsection*{Associate Software Engineer - DevOps \hfill Aug 2022 --- Present} 
+\subsection*{Software Engineer \hfill Jan 2024 --- Present} 
 \subtext{Syncron Software India Pvt. Ltd \hfill Bangalore, KA} 
     \begin{zitemize}
         \item Led zero-downtime cross-account AWS Elastic IP migration for SFTP infrastructure using Python orchestration, staged NLB subnet mapping, Route53 DNS delegation, and rollback utilities.
-        \item Built custom SFTP authentication Lambda with KMS password validation, DynamoDB-backed token bucket rate limiting, CIDR-based IP filtering, and SSH key support for 1000+ concurrent connections.
-        \item Developed FastAPI management API for user lifecycle CRUD operations with DynamoDB persistence, KMS encryption, Pydantic validation, and OpenAPI documentation for 1000+ users.
-        \item Architected multi-region Terraform IaC managing 13+ AWS services across 3 regions with 2-AZ placement patterns, Elastic IP lifecycle management, and cross-account state access.
-        \item Configured GitHub Actions CI/CD pipelines with OIDC-based AWS authentication, multi-architecture Lambda builds, Terraform validation, and tag-based release automation to dev/staging/prod.
         \item Designed CloudWatch monitoring and structured JSON logging to cover 15+ failure modes, enabling low-cardinality Prometheus metrics and multi-period alarm evaluation.
         \item Implemented custom sshpiperd SFTP proxy routing in Go and created DNS rollback, EIP detachment, and AZ coverage automation to prevent single-AZ outages.
+    \end{zitemize}
+
+%%%%%%% ----------------------------------- Role 5a ----------------------------------- %%%%%%%
+\subsection*{Associate Software Engineer - DevOps \hfill Aug 2022 --- Dec 2023} 
+\subtext{Syncron Software India Pvt. Ltd \hfill Bangalore, KA} 
+    \begin{zitemize}
+        \item Built custom AWS Transfer Family auth layer with Lambda and API Gateway replacing legacy SFTP system.
+        \item Enhanced CDK/CodePipeline deployment for AWS Data.All using GitHub webhooks and automated releases.
+        \item Added GitHub workflow security scans for deprecated packages, reducing risk by 30\%.
+        \item Provisioned Terraform for secure business onboarding and automated ECS log rotation for faster fault analysis.
+        \item Strengthened EKS with FSx-backed storage and disaster recovery automation, reducing downtime by 90\%.
     \end{zitemize}
 
 
@@ -126,13 +135,8 @@ Site Reliability Engineer with 2 years of experience adept at developing robust 
 
 
 \section{Skills}
-\begin{tabular}[t] {*{9}{>{\centering\arraybackslash}p{6.2em}}}  
-AWS & Azure & Terraform & Python & Go & Kubernetes & Docker & FastAPI & GitHub Actions \\     
-CloudWatch & Prometheus & Grafana & Loki & Tempo & OpenTelemetry & ArgoCD & Karpenter & Kyverno \\
-Falco & KEDA & Route53 & DynamoDB & KMS & Lambda & SNS & Calico & IRSA \\
-\end{tabular}
-\vspace{-0.2cm}
-
+\textbf{Core:} AWS, Azure, Terraform, Python, Go, Kubernetes, Docker, FastAPI, GitHub Actions | \textbf{Observability:} CloudWatch, Prometheus, Grafana, Loki, Tempo, OpenTelemetry | \textbf{Platform:} ArgoCD, Karpenter, Kyverno, Falco, KEDA, Route53, DynamoDB, KMS, Lambda, SNS, Calico, IRSA
+\vspace{-0.25cm}
 \section{Certifications}
 \begin{tabular}[t]{ p{10em} p{46em}}
 \hskills{Dec - 2023} & HashiCorp Certified: Terraform Associate (003) \hfill(\hskills{\href{https://www.credly.com/badges/814918e9-fc9f-4fde-8ea0-5df068b66902}{Credly} }) \\ % 
