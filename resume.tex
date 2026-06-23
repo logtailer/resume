@@ -3,7 +3,6 @@
 
 \documentclass[a4,10pt]{article}
 \usepackage{latexsym}
-\usepackage[empty]{fullpage}
 \usepackage{titlesec}
  \usepackage{marvosym}
 \usepackage[usenames,dvipsnames]{color}
@@ -16,18 +15,19 @@
 \usepackage{tabularx}
 \hypersetup{colorlinks=true,urlcolor=black}
 \usepackage[11pt]{moresize}
-\usepackage{setspace}
 \usepackage{fontspec}
 \usepackage[inline]{enumitem}
 \usepackage{array}
 \newcolumntype{P}[1]{>{\centering\arraybackslash}p{#1}}
 \usepackage{anyfontsize}
 \usepackage[margin=1cm, top=1cm]{geometry}
-\setmainfont[
-BoldFont=SourceSansPro-Semibold.otf, %SourceSansPro-Bold.otf
-ItalicFont=SourceSansPro-RegularIt.otf
-]{SourceSansPro-Regular.otf}
-\setsansfont{SourceSansPro-Semibold.otf}
+\IfFontExistsTF{Source Sans Pro}{%
+\setmainfont{Source Sans Pro}
+\setsansfont{Source Sans Pro}
+}{%
+\setmainfont{Latin Modern Roman}
+\setsansfont{Latin Modern Sans}
+}
 \pagestyle{fancy}
 \fancyhf{} 
 \fancyfoot{}
@@ -38,8 +38,6 @@ ItalicFont=SourceSansPro-RegularIt.otf
 \raggedright
 \setlength{\tabcolsep}{0in}
 \definecolor{UI_blue}{RGB}{32, 64, 151}
-\usepackage[style=nature, maxbibnames=3]{biblatex}
-\addbibresource{Publications.bib}
 \titleformat{\section}{
 \color{UI_blue} \scshape \raggedright \large 
 }{}{0em}{}[\vspace{-10pt} \hrulefill \vspace{-6pt}]
@@ -73,7 +71,7 @@ ItalicFont=SourceSansPro-RegularIt.otf
     \begin{minipage}[b]{0.24\textwidth}
             \flushright \normalsize  %Willing to Relocate
             {\href{https://www.linkedin.com/in/asanandsumit/}{linkedin/asanandsumit} } \\
-            \href{https://github.com/anandsumit2000}{GitHub/anandsumit2000}
+            \href{https://github.com/logtailer}{GitHub/logtailer}
     \end{minipage}   
 
     {\color{UI_blue} \hrulefill}
@@ -92,12 +90,13 @@ Site Reliability Engineer with 2 years of experience adept at developing robust 
 \subsection*{Associate Software Engineer - DevOps \hfill Aug 2022 --- Present} 
 \subtext{Syncron Software India Pvt. Ltd \hfill Bangalore, KA} 
     \begin{zitemize}
-        \item Architected a new solution with a custom authentication layer using AWS Lambda and API Gateway on AWS Transfer Family, replacing the legacy open-source SFTP system at the service.
-        \item Enhancing the CI/CD deployment method that utilizes the CDK Toolkit to empower developers to dynamically deploy changes to the data-platform(AWS Data.All) via GitHub webhooks and AWS CodePipeline.
-        \item Implemented GitHub workflows to regularly scan repositories for deprecated packages, addressing vulnerabilities and potential breaches. Successfully reduced associated risks by 30\%.
-        \item Upgraded EKS cluster back-ends with persistent type FSx storage volumes for resiliency and fault-tolerance. Wrote shell scripts for housekeeping the clusters for maintenance and recovery.
-        \item Produced terraform scripts for provisioning resources to securely onboard businesses to the dynamic data movement platform service. Brought in automation to fetch and rotate logs from ECS fargate clusters for fault analysis. 
-        \item Implemented disaster recovery plan, minimizing downtime by 90\% to enhance system resilience, guaranteeing uninterrupted service for 500+ business managers allowing them to forecast and strategize for maximum business growth. 
+        \item Led zero-downtime cross-account AWS Elastic IP migration for SFTP infrastructure using Python orchestration, staged NLB subnet mapping, Route53 DNS delegation, and rollback utilities.
+        \item Built custom SFTP authentication Lambda with KMS password validation, DynamoDB-backed token bucket rate limiting, CIDR-based IP filtering, and SSH key support for 1000+ concurrent connections.
+        \item Developed FastAPI management API for user lifecycle CRUD operations with DynamoDB persistence, KMS encryption, Pydantic validation, and OpenAPI documentation for 1000+ users.
+        \item Architected multi-region Terraform IaC managing 13+ AWS services across 3 regions with 2-AZ placement patterns, Elastic IP lifecycle management, and cross-account state access.
+        \item Configured GitHub Actions CI/CD pipelines with OIDC-based AWS authentication, multi-architecture Lambda builds, Terraform validation, and tag-based release automation to dev/staging/prod.
+        \item Designed CloudWatch monitoring and structured JSON logging to cover 15+ failure modes, enabling low-cardinality Prometheus metrics and multi-period alarm evaluation.
+        \item Implemented custom sshpiperd SFTP proxy routing in Go and created DNS rollback, EIP detachment, and AZ coverage automation to prevent single-AZ outages.
     \end{zitemize}
 
 
@@ -124,20 +123,13 @@ Site Reliability Engineer with 2 years of experience adept at developing robust 
         \item Streamlined recruitment processes by eliminating reliance on third-party agencies for work history verification, ensuring a more efficient and direct hiring process.
         \item Researched and implemented blockchain strategies leading to a remarkable 60\% increase in overall system efficiency and expense reduction. Additionally, successfully halved the processing time for HR transactions by leveraging a distributed network of peers sharing a ledger for employee records.
     \end{zitemize}
-    
-%%%%%%% ----------------------------------- Role 1 ----------------------------------- %%%%%%%
-\subsection*{Developer Intern \hfill Oct 2021 --- Dec 2021} 
-\subtext{R\&D, Dept. of CSE - CIT Bangalore \hfill Bangalore, KA} 
-    \begin{zitemize}
-        \item Focused the deployment on a Raspberry Pi using an Ubuntu server with a static Ethernet IP, enhancing system performance and stability. Incorporated Grammar and Parsing Algorithms along with the Naive Bayes algorithm into the chatbot system. 
-        \item Streamlined and optimized the Raspberry Pi-based chatbot project, resulting in a 30\% reduction in admission processing time. Implemented web scraping techniques to significantly expand the question-answer database by 400\%, delivering more accurate and up-to-date information for prospective students.
-    \end{zitemize}
 
 
 \section{Skills}
-\begin{tabular}[t] {*{10}{>{\centering\arraybackslash}p{6em}}}  
-Ansible & API & AWS & Docker & Go & Google Cloud & Git & Helm & Jenkins  \\     
-Kubernetes & Linux & Networks & NoSQL & Prometheus & Python & SRE & Shell & Terraform \\
+\begin{tabular}[t] {*{9}{>{\centering\arraybackslash}p{6.2em}}}  
+AWS & Azure & Terraform & Python & Go & Kubernetes & Docker & FastAPI & GitHub Actions \\     
+CloudWatch & Prometheus & Grafana & Loki & Tempo & OpenTelemetry & ArgoCD & Karpenter & Kyverno \\
+Falco & KEDA & Route53 & DynamoDB & KMS & Lambda & SNS & Calico & IRSA \\
 \end{tabular}
 \vspace{-0.2cm}
 
